@@ -2,25 +2,24 @@ package com.essamine.entities;
 
 import java.util.Date;
 
+
 public class Person {
 
 	private long id;
 	private String firstname;
 	private String lastname;
 	private Date dob;
-	private long[] listNationalities;
 
 	public Person() {
 	}
 
-	public Person(long id, String firstname, String lastname, Date dob,
-			long[] listNationalities) {
+	public Person(long id, String firstname, String lastname,Date dob) {
 
 		this.id = id;
 		this.firstname = firstname;
 		this.lastname = lastname;
-		this.dob = dob;
-		this.listNationalities = listNationalities;
+		this.setDob(dob);
+
 	}
 
 	public long getId() {
@@ -55,11 +54,4 @@ public class Person {
 		this.dob = dob;
 	}
 
-	public long[] getListNationalities() {
-		return listNationalities;
-	}
-
-	public void setListNationalities(long[] listNationalities) {
-		this.listNationalities = listNationalities;
-	}
 }

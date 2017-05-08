@@ -1,0 +1,10 @@
+ <Resource 
+ 	name="jdbc/footballprojectDB" auth="Container" type="javax.sql.DataSource"
+ 	driverClassName="org.hsqldb.jdbcDriver" 
+ 	url="jdbc:hsqldb:file:/media/ibnrochd/01D1D34B76614870/Programming_tools/Programming_tutos_Staff/Workspace_tuto/FootballProject/target/data/footballprojectDB" 
+	username="SA" 
+	password="" >
+		
+</Resource>
+
+<!-- Line above to add in the context.xml of the server tomcat -->
