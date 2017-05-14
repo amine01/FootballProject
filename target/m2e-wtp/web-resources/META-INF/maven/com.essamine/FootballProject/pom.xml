@@ -30,6 +30,13 @@
 			<version>2.2.8</version>
 		</dependency>
 
+		<!-- jstl 1.2 -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
 
 
 	</dependencies>

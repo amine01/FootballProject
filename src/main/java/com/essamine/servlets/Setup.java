@@ -4,12 +4,12 @@ import java.sql.SQLException;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
-import javax.servlet.annotation.WebServlet;
+import javax.servlet.annotation.WebListener;
 
 import com.essamine.Repositories.NationalityRepository;
 import com.essamine.Repositories.PersonRepository;
 
-@WebServlet
+@WebListener
 public class Setup implements ServletContextListener {
 
 	public void contextInitialized(ServletContextEvent sce) {
@@ -19,7 +19,6 @@ public class Setup implements ServletContextListener {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	public void contextDestroyed(ServletContextEvent sce) {
