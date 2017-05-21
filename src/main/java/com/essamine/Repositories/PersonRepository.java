@@ -137,4 +137,29 @@ public class PersonRepository {
 		}
 	}
 
+	public Person findById(Long id) throws SQLException {
+		Connection connection = ds.getConnection();
+		try {
+			Statement statement = connection.createStatement();
+			String sql = "select * from person where id=" + id;
+			try {
+				ResultSet rs = statement.executeQuery(sql);
+				try {
+					Person person = null;
+					while (rs.next()) {
+						person = new Person(rs.getLong(1), rs.getString(2),
+								rs.getString(3), rs.getDate(4));
+					}
+					return person;
+				} finally {
+					rs.close();
+				}
+			} finally {
+				statement.close();
+			}
+		} finally {
+			connection.close();
+		}
+	}
+
 }

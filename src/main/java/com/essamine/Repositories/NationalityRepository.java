@@ -165,4 +165,28 @@ public class NationalityRepository {
 		}
 	}
 
+	public List<Nationality> findNationalitiesByPerson(Long id)
+			throws SQLException {
+		Connection connection = ds.getConnection();
+		List<Nationality> nationalities = new ArrayList<Nationality>();
+		Nationality nationality = null;
+		try {
+			Statement statement = connection.createStatement();
+			String sql = "select * from nationality where nationality.person_id="
+					+ id;
+			try {
+				ResultSet rs = statement.executeQuery(sql);
+				while (rs.next()) {
+					nationality = findById(rs.getLong(1));
+					nationalities.add(nationality);
+				}
+			} finally {
+				statement.close();
+			}
+		} finally {
+			connection.close();
+		}
+		return nationalities;
+	}
+
 }

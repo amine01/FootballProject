@@ -7,19 +7,13 @@
 </head>
 <body>
 
-	<form action="person" method="post">
+	<form action="nationality" method="post">
 		<ul>
 			<li><input type="hidden" name="add" value="add"></li>
-			<li>FirstName: <input type="text" name="firstname"></li>
-			<li>LastName: <input type="text" name="lastname"></li>
-			<li>DateOfBirth: <input type="text" name="dob">"Ex:
-				24-06-1985"
-			</li>
+				<li><input type="hidden" name="person_id" value="${person_id}"></li>
+			<li>Nationality	: <input type="text" name="nationality"></li>
 			<li><input type="submit"></li>
 		</ul>
 	</form>
-	<ul>
-		<li><a href="persons">persons</a></li>
-	</ul>
 </body>
 </html>

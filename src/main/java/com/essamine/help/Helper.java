@@ -5,7 +5,6 @@ import java.text.SimpleDateFormat;
 
 public class Helper {
 
-	
 	public static java.sql.Date StringDateToSqlDate(String stringDate) {
 		SimpleDateFormat reFormat = new SimpleDateFormat("dd-MM-yyyy");
 		java.sql.Date sqlDate = null;
@@ -19,4 +18,5 @@ public class Helper {
 
 		return sqlDate;
 	}
+
 }

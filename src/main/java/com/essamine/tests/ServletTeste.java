@@ -31,24 +31,14 @@ public class ServletTeste extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Person p = new Person();
 		Nationality nat1 = new Nationality();
 		Nationality nat2 = new Nationality();
-		p.setFirstname("Firstname");
-		p.setLastname("Lastname");
-		p.setDob(StringDateToSqlDate("1989-06-29"));
-
-		try {
-			personRepository.create(p);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 
 		nat1.setNationality("moroccan");
-		nat1.setPerson_id(p.getId());
+		nat1.setPerson_id(1);
 		nat2.setNationality("french");
-		nat2.setPerson_id(p.getId());
+		nat2.setPerson_id(1);
 		try {
 			nationalityRepository.create(nat1);
 			nationalityRepository.create(nat2);
@@ -64,17 +54,4 @@ public class ServletTeste extends HttpServlet {
 
 	}
 
-	public java.sql.Date StringDateToSqlDate(String stringDate) {
-		SimpleDateFormat reFormat = new SimpleDateFormat("yyyy-MM-dd");
-		java.sql.Date sqlDate = null;
-
-		try {
-			sqlDate = new java.sql.Date(reFormat.parse(stringDate).getTime());
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		return sqlDate;
-	}
 }
