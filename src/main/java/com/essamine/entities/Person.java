@@ -22,7 +22,7 @@ public class Person {
 	public Person() {
 	}
 
-	public Person(long id, String firstname, String lastname,Date dob) {
+	public Person(long id, String firstname, String lastname, Date dob) {
 
 		this.id = id;
 		this.firstname = firstname;
@@ -62,5 +62,4 @@ public class Person {
 	public void setDob(Date dob) {
 		this.dob = dob;
 	}
-
 }

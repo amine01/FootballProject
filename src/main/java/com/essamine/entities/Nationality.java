@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Nationality {
@@ -12,14 +13,14 @@ public class Nationality {
 	private long id;
 	@Column
 	private String nationality;
-	@Column
-	private long person_id;
+	@ManyToOne
+	private Person person;
 
-	public Nationality(long id, String nationality, long person_id) {
+	public Nationality(long id, String nationality, Person person) {
 
 		this.id = id;
 		this.nationality = nationality;
-		this.person_id = person_id;
+		this.person = person;
 	}
 
 	public Nationality() {
@@ -42,12 +43,13 @@ public class Nationality {
 		this.nationality = nationality;
 	}
 
-	public long getPerson_id() {
-		return person_id;
+	public Person getPerson() {
+		return person;
 	}
 
-	public void setPerson_id(long person_id) {
-		this.person_id = person_id;
+	public void setPerson(Person person) {
+		this.person = person;
 	}
+	
 
 }

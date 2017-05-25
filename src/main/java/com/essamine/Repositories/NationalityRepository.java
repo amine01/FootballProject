@@ -11,7 +11,7 @@ public class NationalityRepository extends Repository<Nationality> {
 
 	public List<Nationality> findNationalitiesByPersonId(Long personId) {
 		return em.createQuery(
-				"from Nationality n where n.person_id=" + personId)
+				"from Nationality n where n.person.id=" + personId)
 				.getResultList();
 
 	}

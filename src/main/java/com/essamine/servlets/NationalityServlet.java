@@ -9,23 +9,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.essamine.Repositories.NationalityRepository;
+import com.essamine.Repositories.PersonRepository;
 import com.essamine.entities.Nationality;
+import com.essamine.entities.Person;
 
 @WebServlet("/nationality")
 public class NationalityServlet extends HttpServlet {
 
 	NationalityRepository nationalityRepository = new NationalityRepository();
+	PersonRepository personRepository = new PersonRepository();
 
 	@Override
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		Long selectedId = null;
-		Long selectedPersonId = null;
+		Person selectedPerson = null;
 
 		if (request.getParameter("add") != null
 				&& request.getParameter("person_id") != null) {
-			// selectedPersonId = Long
-			// .parseLong(request.getParameter("person_id"));
 
 			request.setAttribute("person_id", request.getParameter("person_id"));
 
@@ -34,11 +35,10 @@ public class NationalityServlet extends HttpServlet {
 		} else if (request.getParameter("delete") != null
 				&& request.getParameter("id") != null) {
 			selectedId = Long.parseLong(request.getParameter("id"));
-			selectedPersonId = nationalityRepository.find(selectedId)
-					.getPerson_id();
+			selectedPerson = nationalityRepository.find(selectedId).getPerson();
 			nationalityRepository
 					.delete(nationalityRepository.find(selectedId));
-			response.sendRedirect("person?details&id=" + selectedPersonId);
+			response.sendRedirect("person?details&id=" + selectedPerson.getId());
 
 		} else {
 			super.doGet(request, response);
@@ -53,8 +53,8 @@ public class NationalityServlet extends HttpServlet {
 		if (request.getParameter("add") != null
 				& request.getParameter("person_id") != null) {
 			nationality.setNationality(request.getParameter("nationality"));
-			nationality.setPerson_id(Long.parseLong(request
-					.getParameter("person_id")));
+			nationality.setPerson(personRepository.find(Long.parseLong(request
+					.getParameter("person_id"))));
 			nationalityRepository.save(nationality);
 
 		}
