@@ -11,7 +11,7 @@
 		<li>Id : <c:out value="${person.id}" /></li>
 		<li>FirstName : <c:out value="${person.firstname}" /></li>
 		<li>LastName : <c:out value="${person.lastname}" /></li>
-		<li>DateOfBirth : <c:out value="${person.dob}" /></li>
+		<li>DateOfBirth : <fmt:formatDate value="${person.dob}" pattern="dd-MM-YYYY"/></li>
 
 	</ul>
 
