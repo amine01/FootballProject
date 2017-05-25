@@ -1,4 +1,16 @@
 <web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	version="3.0">
+	<resource-ref>
+		<res-ref-name>java:comp/env/jdbc/footballprojectDB</res-ref-name>
+	</resource-ref>
+
+	<persistence-unit-ref>
+		<persistence-unit-ref-name>footballproject</persistence-unit-ref-name>
+	</persistence-unit-ref>
+
+	<servlet-mapping>
+		<servlet-name>jsp</servlet-name>
+		<url-pattern>/jsp/*</url-pattern>
+	</servlet-mapping>
 </web-app>
