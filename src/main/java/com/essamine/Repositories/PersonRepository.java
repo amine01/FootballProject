@@ -7,4 +7,5 @@ public class PersonRepository extends Repository<Person> {
 	public PersonRepository() {
 		super(Person.class);
 	}
+
 }

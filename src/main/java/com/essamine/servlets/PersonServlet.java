@@ -40,14 +40,7 @@ public class PersonServlet extends HttpServlet {
 		} else if (request.getParameter("delete") != null) {
 			if (request.getParameter("id") != null) {
 				selectedId = Long.parseLong(request.getParameter("id"));
-				//
-				nationalities = nationalityRepository
-						.findNationalitiesByPersonId(selectedId);
-				if (nationalities.size() != 0) {
-					for (Nationality nationality : nationalities)
-						nationalityRepository.delete(nationality);
-				}
-				personRepository.delete(personRepository.find(selectedId));
+				personRepository.delete(selectedId);
 				response.sendRedirect("persons");
 			}
 		} else if (request.getParameter("details") != null) {
@@ -87,6 +80,5 @@ public class PersonServlet extends HttpServlet {
 			personRepository.save(selectedPerson);
 		}
 		response.sendRedirect("persons");
-		// return;
 	}
 }

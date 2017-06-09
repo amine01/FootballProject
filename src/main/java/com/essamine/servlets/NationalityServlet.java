@@ -36,8 +36,7 @@ public class NationalityServlet extends HttpServlet {
 				&& request.getParameter("id") != null) {
 			selectedId = Long.parseLong(request.getParameter("id"));
 			selectedPerson = nationalityRepository.find(selectedId).getPerson();
-			nationalityRepository
-					.delete(nationalityRepository.find(selectedId));
+			nationalityRepository.delete(selectedId);
 			response.sendRedirect("person?details&id=" + selectedPerson.getId());
 
 		} else {
