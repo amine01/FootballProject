@@ -23,6 +23,12 @@ public class Nationality {
 		this.person = person;
 	}
 
+	
+
+	public Nationality(String nationality, Person person) {
+		this.nationality = nationality;
+		this.person = person;
+	}
 	public Nationality() {
 
 	}
@@ -50,6 +56,5 @@ public class Nationality {
 	public void setPerson(Person person) {
 		this.person = person;
 	}
-	
 
 }

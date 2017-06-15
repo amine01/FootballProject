@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd"
+	default-autowire="byName">
+
+	<context:annotation-config />
+	<tx:annotation-driven />
+
+	<jpa:repositories base-package="com.essamine.Repositories" />
+
+	<bean id="dataSource" class="com.jolbox.bonecp.BoneCPDataSource"
+		destroy-method="close">
+		<property name="datasourceBean">
+			<bean class="org.hsqldb.jdbc.JDBCDataSource">
+				<property name="url"
+					value="jdbc:hsqldb:file:/media/ibnrochd/01D1D34B76614870/Programming_tools/Programming_tutos_Staff/Workspace_tuto/FootballProject/target/data/footballprojectDB"></property>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+				<property name="generateDdl" value="true" />
+				<property name="showSql" value="true" />
+				<property name="databasePlatform" value="org.hibernate.dialect.HSQLDialect" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager" />
+
+
+</beans>

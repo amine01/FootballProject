@@ -1,11 +1,8 @@
 package com.essamine.Repositories;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+
 import com.essamine.entities.Person;
 
-public class PersonRepository extends Repository<Person> {
-
-	public PersonRepository() {
-		super(Person.class);
-	}
-
+public interface PersonRepository extends JpaRepository<Person, Long> {
 }

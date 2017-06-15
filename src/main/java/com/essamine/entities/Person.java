@@ -28,6 +28,15 @@ public class Person {
 	public Person() {
 	}
 
+	
+	public Person(String firstname, String lastname, Date dob) {
+	
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.dob = dob;
+	}
+
+
 	public Person(long id, String firstname, String lastname, Date dob) {
 
 		this.id = id;
